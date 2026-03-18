@@ -4,526 +4,473 @@ const Index = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 100);
+    const t = setTimeout(() => setVisible(true), 80);
     return () => clearTimeout(t);
   }, []);
 
   return (
-    <div className="embargo-page">
-      {/* Фоновые элементы */}
-      <div className="bg-layer" />
-      <div className="noise-overlay" />
-      <div className="diagonal-stripe" />
+    <div className="page-wrapper">
+      <div className={`a4-sheet ${visible ? "sheet-visible" : ""}`}>
 
-      {/* Верхняя панель */}
-      <header className={`top-bar ${visible ? "fade-in" : ""}`}>
-        <div className="top-bar-line" />
-        <div className="top-bar-content">
-          <span className="top-label">ПОЛИТИЧЕСКИЙ ДОКУМЕНТ</span>
-          <span className="top-stars">★ ★ ★</span>
-          <span className="top-label">ГОСУДАРСТВЕННЫЙ АКТ</span>
-        </div>
-        <div className="top-bar-line" />
-      </header>
-
-      {/* Главный блок */}
-      <main className="main-content">
-        {/* Левая декорация */}
-        <div className={`side-decor left-decor ${visible ? "slide-in-left" : ""}`}>
-          <div className="flag-stripe red" />
-          <div className="flag-stripe black" />
-          <div className="flag-stripe red" />
-          <div className="vertical-text">ЗАПРЕТ</div>
+        {/* Верхний колонтитул */}
+        <div className="header-row">
+          <div className="header-line" />
+          <div className="header-meta">
+            <span className="meta-text">МЕЖДУНАРОДНОЕ ПРАВО</span>
+            <span className="meta-dots">· · ·</span>
+            <span className="meta-text">ТОРГОВЫЕ ОТНОШЕНИЯ</span>
+            <span className="meta-dots">· · ·</span>
+            <span className="meta-text">ГОСУДАРСТВЕННЫЙ АКТ</span>
+          </div>
+          <div className="header-line" />
         </div>
 
-        {/* Центральный блок */}
-        <div className="center-block">
-          {/* Звёзды сверху */}
-          <div className={`stars-row ${visible ? "fade-in-delay-1" : ""}`}>
-            {"★".repeat(5).split("").map((s, i) => (
-              <span key={i} className="star-item">{s}</span>
-            ))}
+        {/* Номер документа */}
+        <div className="doc-number">DOC. № 1917 — Т. III — СТ. 47</div>
+
+        {/* Орнамент */}
+        <div className="ornament">◈ ◈ ◈</div>
+
+        {/* ГЛАВНОЕ СЛОВО */}
+        <div className="title-block">
+          <div className="title-shadow">ЭМБАРГО</div>
+          <h1 className="title-word">ЭМБАРГО</h1>
+          <div className="title-latin">EMBARGO</div>
+        </div>
+
+        {/* Двойная линия */}
+        <div className="double-rule">
+          <div className="rule-thick" />
+          <div className="rule-thin" />
+        </div>
+
+        {/* Основное определение */}
+        <div className="definition-section">
+          <div className="def-label">§ ОПРЕДЕЛЕНИЕ</div>
+          <p className="def-body">
+            <span className="drop-cap">Э</span>мбарго — официальный государственный запрет
+            на ввоз в страну или вывоз из неё определённых товаров,
+            услуг или капиталов в отношении одного или нескольких
+            иностранных государств. Является инструментом политического
+            и экономического принуждения в системе международных отношений.
+          </p>
+        </div>
+
+        {/* Три колонки */}
+        <div className="double-rule" style={{ marginTop: 24 }}>
+          <div className="rule-thin" />
+          <div className="rule-thick" />
+        </div>
+
+        <div className="columns">
+          <div className="col">
+            <div className="col-icon">⚖</div>
+            <div className="col-title">ПРАВОВАЯ<br />ПРИРОДА</div>
+            <div className="col-text">Акт суверенного государства, закреплённый нормами международного публичного права.</div>
           </div>
-
-          {/* Метка сверху */}
-          <div className={`subtitle-top ${visible ? "fade-in-delay-1" : ""}`}>
-            МЕЖДУНАРОДНОЕ ПРАВО · САНКЦИИ · ТОРГОВЛЯ
+          <div className="col-divider" />
+          <div className="col">
+            <div className="col-icon">📜</div>
+            <div className="col-title">ИСТОРИЧЕСКИЙ<br />КОНТЕКСТ</div>
+            <div className="col-text">Первые упоминания относятся к Древней Греции. В современном праве закреплено Уставом ООН.</div>
           </div>
-
-          {/* Разделитель */}
-          <div className={`divider-line ${visible ? "fade-in-delay-2" : ""}`} />
-
-          {/* ГЛАВНОЕ СЛОВО */}
-          <div className={`main-word-container ${visible ? "word-appear" : ""}`}>
-            <div className="word-shadow-layer">ЭМБАРГО</div>
-            <h1 className="main-word">ЭМБАРГО</h1>
+          <div className="col-divider" />
+          <div className="col">
+            <div className="col-icon">🌐</div>
+            <div className="col-title">СФЕРЫ<br />ПРИМЕНЕНИЯ</div>
+            <div className="col-text">Торговля, финансы, технологии, энергоносители, вооружения и транспортные коммуникации.</div>
           </div>
+        </div>
 
-          {/* Разделитель */}
-          <div className={`divider-line ${visible ? "fade-in-delay-2" : ""}`} />
+        {/* Разделитель */}
+        <div className="double-rule">
+          <div className="rule-thick" />
+          <div className="rule-thin" />
+        </div>
 
-          {/* Гербовые элементы */}
-          <div className={`emblem-row ${visible ? "fade-in-delay-3" : ""}`}>
-            <div className="emblem-circle">
-              <span className="emblem-icon">⚖</span>
+        {/* Примеры */}
+        <div className="examples-section">
+          <div className="examples-title">§ ПРИМЕРЫ В ИСТОРИИ</div>
+          <div className="examples-grid">
+            <div className="example-item">
+              <span className="example-year">1807</span>
+              <span className="example-desc">Континентальная блокада Наполеона против Великобритании</span>
             </div>
-            <div className="emblem-separator">◆ ◆ ◆</div>
-            <div className="emblem-circle">
-              <span className="emblem-icon">🌐</span>
+            <div className="example-item">
+              <span className="example-year">1960</span>
+              <span className="example-desc">Торговое эмбарго США против Кубы</span>
             </div>
-            <div className="emblem-separator">◆ ◆ ◆</div>
-            <div className="emblem-circle">
-              <span className="emblem-icon">✊</span>
+            <div className="example-item">
+              <span className="example-year">1973</span>
+              <span className="example-desc">Нефтяное эмбарго ОПЕК против западных стран</span>
+            </div>
+            <div className="example-item">
+              <span className="example-year">2022</span>
+              <span className="example-desc">Санкции ЕС и США — беспрецедентный масштаб ограничений</span>
             </div>
           </div>
+        </div>
 
-          {/* Объяснение */}
-          <div className={`definition-block ${visible ? "fade-in-delay-3" : ""}`}>
-            <div className="definition-label">— ОПРЕДЕЛЕНИЕ —</div>
-            <p className="definition-text">
-              <strong>Эмбарго</strong> — официальный государственный запрет на ввоз или вывоз товаров, 
-              услуг и капитала в отношении определённой страны или группы стран. 
-              Применяется как инструмент политического и экономического давления.
-            </p>
-          </div>
-
-          {/* Нижние метки */}
-          <div className={`tags-row ${visible ? "fade-in-delay-4" : ""}`}>
-            <span className="tag">ТОРГОВЛЯ</span>
-            <span className="tag-dot">●</span>
-            <span className="tag">ПОЛИТИКА</span>
-            <span className="tag-dot">●</span>
-            <span className="tag">САНКЦИИ</span>
-            <span className="tag-dot">●</span>
-            <span className="tag">ПРАВО</span>
+        {/* ШТАМП */}
+        <div className={`stamp-wrapper ${visible ? "stamp-visible" : ""}`}>
+          <div className="stamp">
+            <div className="stamp-inner">
+              <div className="stamp-stars">★ ★ ★</div>
+              <div className="stamp-word">ПРИНЯТО</div>
+              <div className="stamp-sub">К ИСПОЛНЕНИЮ</div>
+              <div className="stamp-stars">★ ★ ★</div>
+            </div>
           </div>
         </div>
 
-        {/* Правая декорация */}
-        <div className={`side-decor right-decor ${visible ? "slide-in-right" : ""}`}>
-          <div className="flag-stripe black" />
-          <div className="flag-stripe red" />
-          <div className="flag-stripe black" />
-          <div className="vertical-text">САНКЦИЯ</div>
+        {/* Нижний колонтитул */}
+        <div className="footer-row">
+          <div className="header-line" />
+          <div className="footer-content">
+            <span className="footer-text">EMBARGO</span>
+            <span className="footer-ornament">◆</span>
+            <span className="footer-text">МЕЖДУНАРОДНОЕ ПРАВО</span>
+            <span className="footer-ornament">◆</span>
+            <span className="footer-text">EMBARGO</span>
+          </div>
+          <div className="header-line" />
         </div>
-      </main>
 
-      {/* Нижняя панель */}
-      <footer className={`bottom-bar ${visible ? "fade-in-delay-4" : ""}`}>
-        <div className="top-bar-line" />
-        <div className="bottom-content">
-          <span className="bottom-text">EMBARGO</span>
-          <span className="bottom-divider">|</span>
-          <span className="bottom-text">INTERNATIONAL LAW</span>
-          <span className="bottom-divider">|</span>
-          <span className="bottom-text">EMBARGO</span>
-        </div>
-        <div className="top-bar-line" />
-      </footer>
+      </div>
 
       <style>{`
         :root {
-          --clr-black: #0a0a0a;
-          --clr-deep: #111111;
-          --clr-red: #CC0000;
-          --clr-red-bright: #FF1111;
-          --clr-red-dark: #8B0000;
-          --clr-gold: #D4A017;
-          --clr-white: #F5F0E8;
-          --clr-grey: #3a3a3a;
+          --ink: #1a1008;
+          --paper: #F4EFE6;
+          --red: #B80000;
+          --gold: #8B6914;
+          --grey: #7a6e62;
+          --rule: #2a1f14;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .embargo-page {
+        body {
+          background: #2e2620;
+          background-image: radial-gradient(ellipse at 30% 20%, #3e3020 0%, transparent 55%),
+                            radial-gradient(ellipse at 70% 80%, #1e1810 0%, transparent 55%);
           min-height: 100vh;
-          background: var(--clr-black);
-          color: var(--clr-white);
-          font-family: 'Oswald', sans-serif;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          padding: 48px 20px;
+          font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        .page-wrapper {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+        }
+
+        .a4-sheet {
+          width: 794px;
+          min-height: 1123px;
+          background: var(--paper);
+          background-image:
+            radial-gradient(ellipse at 12% 6%, rgba(255,255,240,0.55) 0%, transparent 38%),
+            radial-gradient(ellipse at 88% 94%, rgba(195,175,135,0.28) 0%, transparent 38%),
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+          color: var(--ink);
+          padding: 56px 66px;
           display: flex;
           flex-direction: column;
+          gap: 0;
+          box-shadow: 0 6px 30px rgba(0,0,0,0.5), 0 24px 80px rgba(0,0,0,0.35),
+                      inset 0 0 100px rgba(175,155,115,0.06);
           position: relative;
-          overflow: hidden;
-        }
-
-        .bg-layer {
-          position: absolute;
-          inset: 0;
-          background: radial-gradient(ellipse at center, #1a0000 0%, #0a0a0a 60%, #000 100%);
-          z-index: 0;
-        }
-
-        .noise-overlay {
-          position: absolute;
-          inset: 0;
-          z-index: 1;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-          opacity: 0.15;
-          pointer-events: none;
-        }
-
-        .diagonal-stripe {
-          position: absolute;
-          top: -50%;
-          left: -10%;
-          width: 120%;
-          height: 200%;
-          background: repeating-linear-gradient(
-            -45deg,
-            transparent,
-            transparent 40px,
-            rgba(180,0,0,0.03) 40px,
-            rgba(180,0,0,0.03) 42px
-          );
-          z-index: 1;
-          pointer-events: none;
-        }
-
-        /* TOP BAR */
-        .top-bar {
-          position: relative;
-          z-index: 10;
-          padding: 20px 40px 12px;
           opacity: 0;
-          transition: opacity 0.8s ease;
-        }
-        .top-bar.fade-in { opacity: 1; }
-
-        .top-bar-line {
-          height: 3px;
-          background: linear-gradient(90deg, transparent, var(--clr-red), var(--clr-gold), var(--clr-red), transparent);
-          margin-bottom: 10px;
+          transform: translateY(18px);
+          transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .top-bar-content {
+        .sheet-visible { opacity: 1; transform: translateY(0); }
+
+        /* HEADER */
+        .header-row { margin-bottom: 22px; }
+
+        .header-line {
+          height: 1.5px;
+          background: var(--rule);
+          margin-bottom: 6px;
+        }
+
+        .header-meta {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 0 10px;
+          padding: 3px 0;
         }
 
-        .top-label {
-          font-family: 'IBM Plex Sans', sans-serif;
-          font-size: 11px;
-          letter-spacing: 0.25em;
-          color: var(--clr-gold);
-          text-transform: uppercase;
-        }
-
-        .top-stars {
-          color: var(--clr-red);
-          font-size: 14px;
-          letter-spacing: 8px;
-        }
-
-        /* MAIN */
-        .main-content {
-          flex: 1;
-          display: flex;
-          align-items: stretch;
-          justify-content: center;
-          position: relative;
-          z-index: 10;
-          padding: 20px 0 20px;
-        }
-
-        /* SIDE DECORATIONS */
-        .side-decor {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: 60px;
-          gap: 0;
-          padding: 10px 0;
-          opacity: 0;
-          transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
-        }
-
-        .left-decor {
-          transform: translateX(-30px);
-        }
-        .left-decor.slide-in-left {
-          opacity: 1;
-          transform: translateX(0);
-        }
-        .right-decor {
-          transform: translateX(30px);
-        }
-        .right-decor.slide-in-right {
-          opacity: 1;
-          transform: translateX(0);
-        }
-
-        .flag-stripe {
-          width: 12px;
-          flex: 1;
-          min-height: 60px;
-        }
-        .flag-stripe.red { background: var(--clr-red); }
-        .flag-stripe.black { background: #1a1a1a; border: 1px solid #333; }
-
-        .vertical-text {
-          writing-mode: vertical-rl;
-          text-orientation: mixed;
-          font-family: 'Oswald', sans-serif;
+        .meta-text {
           font-size: 9px;
-          letter-spacing: 0.3em;
-          color: var(--clr-grey);
+          letter-spacing: 0.25em;
+          color: var(--grey);
           text-transform: uppercase;
-          margin-top: 12px;
         }
 
-        /* CENTER BLOCK */
-        .center-block {
-          flex: 1;
-          max-width: 800px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 20px;
-          padding: 0 30px;
+        .meta-dots { color: var(--gold); font-size: 10px; letter-spacing: 4px; }
+
+        .doc-number {
+          font-size: 10px;
+          letter-spacing: 0.2em;
+          color: var(--grey);
+          text-align: center;
+          margin-bottom: 14px;
         }
 
-        .stars-row {
-          display: flex;
-          gap: 14px;
-          opacity: 0;
-          transition: opacity 0.6s ease 0.3s;
-        }
-        .stars-row.fade-in-delay-1 { opacity: 1; }
-
-        .star-item {
-          color: var(--clr-red);
-          font-size: 18px;
-          animation: pulse-star 2s infinite;
-        }
-        .star-item:nth-child(2) { animation-delay: 0.2s; }
-        .star-item:nth-child(3) { animation-delay: 0.4s; color: var(--clr-gold); }
-        .star-item:nth-child(4) { animation-delay: 0.2s; }
-        .star-item:nth-child(5) { animation-delay: 0.0s; }
-
-        @keyframes pulse-star {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.7; transform: scale(1.2); }
-        }
-
-        .subtitle-top {
-          font-family: 'IBM Plex Sans', sans-serif;
+        .ornament {
+          text-align: center;
           font-size: 11px;
-          letter-spacing: 0.22em;
-          color: var(--clr-gold);
-          text-transform: uppercase;
+          letter-spacing: 14px;
+          color: var(--gold);
+          margin-bottom: 26px;
+        }
+
+        /* TITLE */
+        .title-block {
           text-align: center;
-          opacity: 0;
-          transition: opacity 0.6s ease 0.5s;
-        }
-        .subtitle-top.fade-in-delay-1 { opacity: 1; }
-
-        .divider-line {
-          width: 100%;
-          height: 2px;
-          background: linear-gradient(90deg, transparent 0%, var(--clr-red-dark) 20%, var(--clr-red) 50%, var(--clr-red-dark) 80%, transparent 100%);
-          opacity: 0;
-          transition: opacity 0.6s ease 0.6s;
-        }
-        .divider-line.fade-in-delay-2 { opacity: 1; }
-
-        /* MAIN WORD */
-        .main-word-container {
+          margin-bottom: 24px;
           position: relative;
-          text-align: center;
-          opacity: 0;
-          transform: scale(0.85);
-          transition: opacity 0.9s ease 0.5s, transform 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
-        }
-        .main-word-container.word-appear {
-          opacity: 1;
-          transform: scale(1);
         }
 
-        .word-shadow-layer {
+        .title-shadow {
           position: absolute;
           inset: 0;
           font-family: 'Oswald', sans-serif;
           font-weight: 700;
-          font-size: clamp(90px, 18vw, 220px);
+          font-size: 134px;
           letter-spacing: -0.02em;
-          text-transform: uppercase;
+          text-align: center;
           color: transparent;
-          -webkit-text-stroke: 1px rgba(180,0,0,0.15);
-          transform: translate(6px, 6px);
+          -webkit-text-stroke: 0.5px rgba(100,60,20,0.1);
+          transform: translate(4px, 5px);
           user-select: none;
           pointer-events: none;
+          line-height: 1;
         }
 
-        .main-word {
+        .title-word {
           font-family: 'Oswald', sans-serif;
           font-weight: 700;
-          font-size: clamp(90px, 18vw, 220px);
+          font-size: 134px;
           letter-spacing: -0.02em;
-          text-transform: uppercase;
-          color: var(--clr-white);
           line-height: 1;
           position: relative;
-          background: linear-gradient(180deg, #FFFFFF 0%, #F5F0E8 40%, #CC3333 100%);
+          background: linear-gradient(180deg, #1a1008 0%, #3d2010 55%, #6b2e0a 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          filter: drop-shadow(0 0 40px rgba(200,0,0,0.5)) drop-shadow(0 0 80px rgba(200,0,0,0.2));
-          animation: glow-pulse 3s infinite;
         }
 
-        @keyframes glow-pulse {
-          0%, 100% { filter: drop-shadow(0 0 40px rgba(200,0,0,0.5)) drop-shadow(0 0 80px rgba(200,0,0,0.2)); }
-          50% { filter: drop-shadow(0 0 60px rgba(220,0,0,0.7)) drop-shadow(0 0 100px rgba(220,0,0,0.4)); }
+        .title-latin {
+          font-family: 'Cormorant', serif;
+          font-style: italic;
+          font-size: 17px;
+          letter-spacing: 0.6em;
+          color: var(--gold);
+          margin-top: 2px;
+          text-transform: uppercase;
         }
 
-        /* EMBLEM ROW */
-        .emblem-row {
-          display: flex;
-          align-items: center;
-          gap: 20px;
+        /* RULES */
+        .double-rule { display: flex; flex-direction: column; gap: 3px; margin: 18px 0; }
+        .rule-thick { height: 2.5px; background: var(--rule); }
+        .rule-thin { height: 1px; background: var(--rule); opacity: 0.45; }
+
+        /* DEFINITION */
+        .def-label {
+          font-family: 'Oswald', sans-serif;
+          font-size: 10px;
+          letter-spacing: 0.32em;
+          color: var(--gold);
+          margin-bottom: 13px;
+          text-transform: uppercase;
+        }
+
+        .def-body {
+          font-family: 'Cormorant', serif;
+          font-size: 17px;
+          line-height: 1.82;
+          color: var(--ink);
+          text-align: justify;
+          hyphens: auto;
+        }
+
+        .drop-cap {
+          font-family: 'Cormorant', serif;
+          font-size: 66px;
+          font-weight: 700;
+          line-height: 0.75;
+          float: left;
+          margin-right: 6px;
+          margin-top: 4px;
+          color: var(--red);
+        }
+
+        /* COLUMNS */
+        .columns { display: flex; align-items: flex-start; }
+
+        .col { flex: 1; padding: 16px 18px; background: rgba(160,130,90,0.05); }
+
+        .col-divider {
+          width: 1px;
+          background: var(--rule);
+          opacity: 0.18;
+          align-self: stretch;
+          margin: 8px 0;
+        }
+
+        .col-icon { font-size: 18px; margin-bottom: 7px; }
+
+        .col-title {
+          font-family: 'Oswald', sans-serif;
+          font-size: 10px;
+          letter-spacing: 0.18em;
+          color: var(--ink);
+          margin-bottom: 9px;
+          line-height: 1.5;
+        }
+
+        .col-text {
+          font-size: 11px;
+          line-height: 1.7;
+          color: var(--grey);
+        }
+
+        /* STAMP */
+        .stamp-wrapper {
+          position: absolute;
+          right: 72px;
+          top: 400px;
+          z-index: 10;
           opacity: 0;
-          transition: opacity 0.6s ease 0.9s;
+          transform: rotate(-8deg) scale(0.65);
+          transition: opacity 0.6s ease 1.4s, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.35) 1.4s;
         }
-        .emblem-row.fade-in-delay-3 { opacity: 1; }
 
-        .emblem-circle {
-          width: 52px;
-          height: 52px;
-          border: 2px solid var(--clr-red-dark);
+        .stamp-visible {
+          opacity: 0.8;
+          transform: rotate(-5deg) scale(1);
+        }
+
+        .stamp {
+          width: 128px;
+          height: 128px;
+          border: 3px solid var(--red);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: rgba(150,0,0,0.1);
-          transition: border-color 0.3s, background 0.3s;
-        }
-        .emblem-circle:hover {
-          border-color: var(--clr-gold);
-          background: rgba(212,160,23,0.1);
+          position: relative;
         }
 
-        .emblem-icon { font-size: 22px; }
-
-        .emblem-separator {
-          color: var(--clr-red-dark);
-          font-size: 10px;
-          letter-spacing: 6px;
+        .stamp::before {
+          content: '';
+          position: absolute;
+          inset: 6px;
+          border: 1.5px solid var(--red);
+          border-radius: 50%;
+          opacity: 0.7;
         }
 
-        /* DEFINITION */
-        .definition-block {
-          border: 1px solid rgba(180,0,0,0.4);
-          border-left: 4px solid var(--clr-red);
-          background: rgba(20,0,0,0.5);
-          padding: 24px 32px;
-          max-width: 640px;
-          text-align: center;
-          backdrop-filter: blur(4px);
-          opacity: 0;
-          transition: opacity 0.7s ease 1.0s;
-        }
-        .definition-block.fade-in-delay-3 { opacity: 1; }
+        .stamp-inner { text-align: center; position: relative; z-index: 1; }
 
-        .definition-label {
-          font-family: 'IBM Plex Sans', sans-serif;
-          font-size: 10px;
-          letter-spacing: 0.4em;
-          color: var(--clr-gold);
-          margin-bottom: 14px;
-          text-transform: uppercase;
-        }
+        .stamp-stars { font-size: 8px; letter-spacing: 3px; color: var(--red); display: block; margin: 2px 0; }
 
-        .definition-text {
-          font-family: 'IBM Plex Sans', sans-serif;
+        .stamp-word {
+          font-family: 'Oswald', sans-serif;
+          font-weight: 700;
           font-size: 15px;
-          line-height: 1.75;
-          color: rgba(245,240,232,0.85);
-          font-weight: 400;
+          letter-spacing: 0.08em;
+          color: var(--red);
+          line-height: 1.1;
         }
 
-        .definition-text strong {
-          color: var(--clr-white);
-          font-weight: 700;
-        }
-
-        /* TAGS */
-        .tags-row {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          flex-wrap: wrap;
-          justify-content: center;
-          opacity: 0;
-          transition: opacity 0.6s ease 1.2s;
-        }
-        .tags-row.fade-in-delay-4 { opacity: 1; }
-
-        .tag {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 10px;
-          font-weight: 700;
-          letter-spacing: 0.25em;
-          color: var(--clr-white);
-          text-transform: uppercase;
-          border: 1px solid rgba(180,0,0,0.5);
-          padding: 5px 12px;
-          background: rgba(150,0,0,0.15);
-          transition: background 0.2s, border-color 0.2s;
-          cursor: default;
-        }
-        .tag:hover {
-          background: rgba(180,0,0,0.3);
-          border-color: var(--clr-red);
-        }
-
-        .tag-dot {
-          color: var(--clr-red-dark);
+        .stamp-sub {
           font-size: 8px;
+          letter-spacing: 0.18em;
+          color: var(--red);
+          margin-top: 1px;
         }
+
+        /* EXAMPLES */
+        .examples-section { margin-top: 0; }
+
+        .examples-title {
+          font-family: 'Oswald', sans-serif;
+          font-size: 10px;
+          letter-spacing: 0.32em;
+          color: var(--gold);
+          margin-bottom: 13px;
+        }
+
+        .examples-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          border: 1px solid rgba(40,30,20,0.18);
+        }
+
+        .example-item {
+          display: flex;
+          align-items: baseline;
+          gap: 13px;
+          padding: 12px 15px;
+          border-bottom: 1px solid rgba(40,30,20,0.11);
+          border-right: 1px solid rgba(40,30,20,0.11);
+        }
+
+        .example-item:nth-child(2n) { border-right: none; }
+        .example-item:nth-child(n+3) { border-bottom: none; }
+
+        .example-year {
+          font-family: 'Oswald', sans-serif;
+          font-size: 21px;
+          font-weight: 600;
+          color: var(--red);
+          flex-shrink: 0;
+          line-height: 1;
+        }
+
+        .example-desc { font-size: 11px; line-height: 1.5; color: var(--grey); }
 
         /* FOOTER */
-        .bottom-bar {
-          position: relative;
-          z-index: 10;
-          padding: 12px 40px 20px;
-          opacity: 0;
-          transition: opacity 0.7s ease 1.4s;
-        }
-        .bottom-bar.fade-in-delay-4 { opacity: 1; }
+        .footer-row { margin-top: auto; padding-top: 28px; }
 
-        .bottom-content {
+        .footer-content {
           display: flex;
-          justify-content: center;
+          justify-content: space-between;
           align-items: center;
-          gap: 20px;
-          padding: 10px 0;
+          padding: 7px 0;
         }
 
-        .bottom-text {
-          font-family: 'IBM Plex Sans', sans-serif;
-          font-size: 10px;
-          letter-spacing: 0.35em;
-          color: rgba(245,240,232,0.3);
+        .footer-text {
+          font-size: 9px;
+          letter-spacing: 0.32em;
+          color: var(--grey);
+          opacity: 0.55;
           text-transform: uppercase;
         }
 
-        .bottom-divider {
-          color: rgba(180,0,0,0.4);
-          font-size: 12px;
-        }
+        .footer-ornament { color: var(--gold); font-size: 9px; opacity: 0.6; }
 
-        @media (max-width: 600px) {
-          .side-decor { display: none; }
-          .top-label { display: none; }
-          .top-stars { margin: 0 auto; }
-          .top-bar-content { justify-content: center; }
-          .center-block { padding: 0 16px; }
-          .definition-block { padding: 16px 20px; }
-          .definition-text { font-size: 13px; }
-          .tags-row { gap: 8px; }
+        @media (max-width: 860px) {
+          body { padding: 0; }
+          .a4-sheet { width: 100%; min-height: 100vh; padding: 28px 20px; box-shadow: none; }
+          .title-word, .title-shadow { font-size: 80px; }
+          .stamp-wrapper { top: 310px; right: 14px; }
+          .columns { flex-direction: column; }
+          .col-divider { display: none; }
+          .examples-grid { grid-template-columns: 1fr; }
+          .example-item:nth-child(n) { border-right: none; border-bottom: 1px solid rgba(40,30,20,0.11); }
+          .example-item:last-child { border-bottom: none; }
+          .header-meta { flex-direction: column; gap: 3px; text-align: center; }
+          .meta-dots { display: none; }
         }
       `}</style>
     </div>
